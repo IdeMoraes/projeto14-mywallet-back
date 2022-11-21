@@ -25,3 +25,11 @@ export async function creatExit(req,res){
         return res.sendStatus('500');
     }
 }
+export async function listEntries(req,res){
+    const {user} = res.locals;
+    try {
+        res.send(user.entries);
+      } catch (error) {
+        console.error({ error });
+      }
+}

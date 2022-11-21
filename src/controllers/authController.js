@@ -15,3 +15,13 @@ export async function login(req,res){
     }
     res.sendStatus(401);
 }
+
+export async function logout(req,res){
+    const {user} = res.locals;
+    try {
+        await db.collection("sessions").deleteOne({ userId: user._id });
+        res.status(200).send({ message: "Sessão finalizada com sucesso!" });
+      } catch (error) {
+        console.error({ error });
+      }
+}

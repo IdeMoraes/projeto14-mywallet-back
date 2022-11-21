@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import db from '../db.js';
 
-export async function creatEntry(req,res){
+export async function createEntry(req,res){
     const entry = req.body;
     const {user} = res.locals;
     try {
@@ -13,7 +13,7 @@ export async function creatEntry(req,res){
         return res.sendStatus('500');
     }
 }
-export async function creatExit(req,res){
+export async function createExit(req,res){
     const entry = req.body;
     const {user} = res.locals;
     try {
